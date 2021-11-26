@@ -1,0 +1,10 @@
+{% extends "blog/layout.html" %}
+
+{% block body %}
+    <h2>You have been successfuly logged out!</h2>
+    <div>
+        <small>
+            <a href="{% url 'login' %}">Log In again</a>
+        </small>
+    </div>
+{% endblock body %}

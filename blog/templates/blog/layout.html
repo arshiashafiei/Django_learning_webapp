@@ -12,6 +12,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css'%}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon.ico' %}"/>
 
     {% if title %}
         <title>{{ title }}</title>
@@ -30,12 +31,24 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="flex-right">
-                <a class="mr-15 front-nav" href="#">Login</a>
-                <a class="mr-15 front-nav" href="#">Signup</a>
+                {% if user.is_authenticated %}
+                    <a class="mr-15 front-nav" href="{% url 'profile' %}">Profile</a>
+                    <a class="mr-15 front-nav" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="mr-15 front-nav" href="{% url 'login' %}">Login</a>
+                    <a class="mr-15 front-nav" href="{% url 'register' %}">Signup</a>
+                {% endif %}
             </div>
         </nav>
     </div>
     <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
         {% block body %}{% endblock %}
     </div>
 

@@ -24,7 +24,13 @@ body {
 }
 
 .front-nav {
-    font-size: 1.4rem;
+    font-size: 25px;
+    font-weight: 400;
     color: white;
     text-decoration: none;
+}
+
+.account-img {
+    width: 125px;
+    height: 125px;
 }
