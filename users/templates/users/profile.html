@@ -3,11 +3,24 @@
 
 {% block body %}
     
-   <div>
+    <div>
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div>
             <h2 class="post-body">{{ user.username }}</h2>
             <p class="post-body">{{ user.email }}</p>
+        </div>
+        <div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Profile Info</legend>
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <div>
+                    <button type="submit">Update</button>
+                </div>
+            </form>
         </div>
     </div>
     
