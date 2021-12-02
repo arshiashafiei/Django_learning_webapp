@@ -3,7 +3,8 @@
 {% block body %}
     <h1>Home page!</h1>
     {% for post in posts %}
-        <article>
+        <article class="flex">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
             <div>
                 <div>
                     <a href="#">{{ post.author }}</a>

@@ -33,4 +33,16 @@ body {
 .account-img {
     width: 125px;
     height: 125px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.article-img {
+    width: 65px;
+    height: 65px;
+    margin-right: 1rem;
+}
+
+.flex {
+    display: flex;
 }
