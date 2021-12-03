@@ -1,11 +1,16 @@
 {% extends "blog/layout.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
-{% block body %}
+{% block content %}
     
     <div>
         <div class="flex">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            {% if user.profile.image %}
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            {% else %}
+                <img class="rounded-circle account-img" src="{% static 'blog/default.jpg'%}">
+            {% endif %}
             <div>
                 <h2 class="post-body">{{ user.username }}</h2>
                 <p class="post-body">{{ user.email }}</p>
@@ -26,4 +31,4 @@
         </div>
     </div>
     
-{% endblock body %}
+{% endblock content %}

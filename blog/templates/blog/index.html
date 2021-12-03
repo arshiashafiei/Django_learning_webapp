@@ -1,10 +1,15 @@
 {% extends "blog/layout.html" %}
+{% load static %}
 
-{% block body %}
+{% block content %}
     <h1>Home page!</h1>
     {% for post in posts %}
         <article class="flex">
-            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            {% if post.author.profile.image %}
+                <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            {% else %}
+                <img class="rounded-circle article-img" src="{% static 'blog/default.jpg' %}">
+            {% endif %}
             <div>
                 <div>
                     <a href="#">{{ post.author }}</a>
@@ -15,4 +20,4 @@
             </div>
         </article>
     {% endfor %}
-{% endblock body %}
+{% endblock content %}
