@@ -32,6 +32,7 @@
             <!-- Navbar Right Side -->
             <div class="flex-right">
                 {% if user.is_authenticated %}
+                    <a class="mr-15 front-nav" href="{% url 'post-create' %}">Create Post</a>
                     <a class="mr-15 front-nav" href="{% url 'profile' %}">Profile</a>
                     <a class="mr-15 front-nav" href="{% url 'logout' %}">Logout</a>
                 {% else %}

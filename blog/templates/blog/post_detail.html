@@ -1,0 +1,26 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+
+{% block content %}
+    <article class="flex">
+        {% if object.author.profile.image %}
+            <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+        {% else %}
+            <img class="rounded-circle article-img" src="{% static 'blog/default.jpg' %}">
+        {% endif %}
+        <div>
+            <div>
+                <a href="#">{{ object.author }}</a>
+                <small>{{ object.date_posted }}</small>
+                {% if object.author == user %}
+                    <div>
+                        <a href="{% url 'post-update' object.id %}">Update</a>
+                        <a class="ml-15" href="{% url 'post-delete' object.id %}">Delete</a>
+                    </div>
+                {% endif %}
+            </div>
+            <h2>{{ object.title }}</a></h2>
+            <p>{{ object.content }}</p>
+        </div>
+    </article>
+{% endblock content %}

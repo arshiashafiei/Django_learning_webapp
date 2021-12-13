@@ -2,22 +2,16 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>signup page!</h1>
     <div>
         <form method="POST">
             {% csrf_token %}
             <fieldset>
-                <legend>Join!</legend>
+                <legend>Blog Post</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="m-top">
-                <button type="submit">Sign Up</button>
+                <button type="submit">Post</button>
             </div>
         </form>
-        <div>
-            <small>
-                <a href="{% url 'login' %}">Already have an account?</a>
-            </small>
-        </div>
     </div>
 {% endblock content %}

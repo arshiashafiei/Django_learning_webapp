@@ -15,7 +15,7 @@
                     <a href="#">{{ post.author }}</a>
                     <small>{{ post.date_posted }}</small>
                 </div>
-                <h2><a href="#">{{ post.title }}</a></h2>
+                <h2><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
                 <p>{{ post.content }}</p>
             </div>
         </article>

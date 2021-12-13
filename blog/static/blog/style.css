@@ -10,6 +10,10 @@ body {
     margin-right: 20px;
 }
 
+.m-top {
+    margin-top: 1.2rem;
+}
+
 .flex-right {
     display: flex;
     justify-content: flex-end;
