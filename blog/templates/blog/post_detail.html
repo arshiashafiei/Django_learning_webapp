@@ -10,7 +10,7 @@
         {% endif %}
         <div>
             <div>
-                <a href="#">{{ object.author }}</a>
+                <a href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
                 <small>{{ object.date_posted }}</small>
                 {% if object.author == user %}
                     <div>
