@@ -5,7 +5,9 @@ FROM python:3.10.4-slim
 WORKDIR /app
 
 RUN useradd -m python && \
-    chown python:python -R /app
+    chown python:python -R /app && \
+    apt-get update && \
+    apt-get -y install libpq-dev gcc 
 
 USER python
 
@@ -16,7 +18,9 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 COPY --chown=python:python requirements.txt .
-RUN python -m pip install -r requirements.txt
+
+RUN python -m pip install -U pip && \
+    python -m pip install -r requirements.txt
 
 COPY --chown=python:python . .
 
