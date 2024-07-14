@@ -1,0 +1,26 @@
+services:
+  db:
+    container_name: db
+    image: postgres:16.2
+    volumes:
+       - postgres:/data/postgres
+    environment:
+      - POSTGRES_DB=djangoblog
+      - POSTGRES_USER=djangoblogadmin
+      - POSTGRES_PASSWORD=meomeo
+  web:
+    container_name: django
+    image: arshia2562/django-blog:1.1
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=djangoblog
+      - POSTGRES_USER=djangoblogadmin
+      - POSTGRES_PASSWORD=meomeo
+      - POSTGRES_HOST=db
+    depends_on:
+      - db
+volumes:
+    postgres:
